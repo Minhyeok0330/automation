@@ -15,6 +15,7 @@ tier_build = []
 
 for i in range(3):
     subject_info = driver.find_elements(By.CSS_SELECTOR, 'a.keep-all')
+    # subject_info[number].click() - 클릭은 작동을 안 함 아마 자바스크립트 이슈인듯?
     driver.get(subject_info[i].get_attribute('href')) #클릭 안 하고 링크 직접 받아왔음
     
     # weapon = driver.find_element(By.CSS_SELECTOR, 'content-container > main > div.contents > div.main-content > div > section:nth-child(5) > div.css-137y4f0 > div.css-i78jj1 > table > tbody > tr:nth-child(1) > td.item.css-1vxu0ws > div > div.item-name').text
@@ -30,7 +31,6 @@ for i in range(3):
     name = driver.find_element(By.CSS_SELECTOR, 'h3').text
     tactical = driver.find_element(By.CSS_SELECTOR, 'td.tactical-skill > * span').text
     augment = driver.find_element(By.CSS_SELECTOR, 'div.core-augment-info-name:nth-of-type(1)').text
-    # subject_info[number].click() - 클릭은 작동을 안 함 아마 자바스크립트 이슈인듯?
     time.sleep(2)
     tier_build.append([name, tactical, augment])
     driver.back()     
